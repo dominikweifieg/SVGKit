@@ -275,10 +275,18 @@
 			}
 			NSString* command = [transformString substringToIndex:loc.location];
             NSString* rawParametersString = [transformString substringFromIndex:loc.location+1];
-			NSArray* parameterStrings = [rawParametersString componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@", "]];
+            NSScanner* scanner = [[NSScanner alloc] initWithString:rawParametersString];
+            NSMutableArray *parameterStrings = [[NSMutableArray alloc] init];
+            while (![scanner isAtEnd]) {
+                double d = 0;
+                if ([scanner scanDouble:&d]) {
+                    [parameterStrings addObject:[NSString stringWithFormat:@"%.4f", d]];
+                }
+            }
+//			NSArray* parameterStrings = [rawParametersString componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@", "]];
 			
 			/** if you get ", " (comma AND space), Apple sends you an extra 0-length match - "" - between your args. We strip that here */
-			parameterStrings = [parameterStrings filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"length > 0"]];
+//			parameterStrings = [parameterStrings filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"length > 0"]];
 			
 			//EXTREME DEBUG: SVGKitLogVerbose(@"[%@] DEBUG: found parameters = %@", [self class], parameterStrings);
 			
