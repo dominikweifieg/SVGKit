@@ -17,7 +17,7 @@
 
 #include "TargetConditionals.h"
 
-#define V_1_COMPATIBILITY_COMPILE_CALAYEREXPORTER_CLASS 0
+#define V_1_COMPATIBILITY_COMPILE_CALAYEREXPORTER_CLASS 1
 
 #import "DOMHelperUtilities.h"
 #import "SVGCircleElement.h"
