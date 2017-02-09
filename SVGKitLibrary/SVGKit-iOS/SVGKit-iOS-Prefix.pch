@@ -6,6 +6,8 @@
 #import <Foundation/Foundation.h>
 #import <CocoaLumberjack/CocoaLumberjack.h>
 
+#define V_1_COMPATIBILITY_COMPILE_CALAYEREXPORTER_CLASS YES
+
 #define SVGKIT_LOG_CONTEXT 556
 #define LOG_ASYNC_ENABLED YES
 
